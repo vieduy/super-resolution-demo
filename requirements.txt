@@ -11,6 +11,9 @@ Jinja2==2.11.3
 kiwisolver
 MarkupSafe==1.1.1
 matplotlib
+mkl-fft==1.2.0
+mkl-random==1.1.1
+mkl-service==2.3.0
 numpy
 olefile==0.46
 opencv-python==4.5.1.48
@@ -18,11 +21,11 @@ pandas==1.1.5
 Pillow
 pyparsing
 python-dateutil
+pytz==2021.1
+PyYAML==5.4.1
 scipy==1.5.4
 six
--f https://download.pytorch.org/whl/torch_stable.html
 torch==1.7.1
--f https://download.pytorch.org/whl/torch_stable.html
 torchvision==0.8.2
 tornado
 tqdm==4.58.0
