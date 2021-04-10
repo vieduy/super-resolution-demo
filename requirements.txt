@@ -21,9 +21,9 @@ python-dateutil
 scipy==1.5.4
 six
 -f https://download.pytorch.org/whl/torch_stable.html
-torch==1.7.1+cpu
+torch==1.7.1
 -f https://download.pytorch.org/whl/torch_stable.html
-torchvision==0.8.2+cpu
+torchvision==0.8.2
 tornado
 tqdm==4.58.0
 typing-extensions==3.7.4.3
