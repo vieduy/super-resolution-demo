@@ -100,6 +100,9 @@ def main():
         if not os.path.exists(save_img_path): os.makedirs(save_img_path)
         for img, name in zip(sr_list, path_list):
             cv2.imwrite(os.path.join(save_img_path, 'SRFBN_'+name), cv2.cvtColor(img, cv2.COLOR_RGB2BGR))
+            del img
+
+        del sr_list
 
         print("==================================================")
         print("===> Finished !")

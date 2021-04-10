@@ -4,6 +4,7 @@ from werkzeug.utils import secure_filename
 from srfbn.test import main
 from srrescgan.predict import main_srrescgan
 import numpy as np
+import time
 
 UPLOAD_FOLDER = 'static/uploads/'
 DOWNLOAD_FOLDER = 'static/downloads/'
@@ -40,6 +41,7 @@ def index():
             filename = secure_filename(file.filename)
             file.save(os.path.join(UPLOAD_FOLDER, filename))
             process_file(os.path.join(UPLOAD_FOLDER, filename), filename, model)
+
             data = {
                 "processed_img": 'static/downloads/' + model+'_'+filename,
                 "uploaded_img": 'static/uploads/' + filename

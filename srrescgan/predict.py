@@ -7,7 +7,7 @@ import torch
 from srrescgan.models.SRResCGAN import Generator
 from srrescgan.utils import timer
 from collections import OrderedDict
-
+import time
 torch.cuda.empty_cache()
 
 
@@ -142,7 +142,7 @@ def main_srrescgan():
         save_img_path = os.path.join('./static/downloads')
 
         if not os.path.exists(save_img_path): os.makedirs(save_img_path)
-        cv2.imwrite('./static/downloads/SRResCGAN_{:s}.png'.format(base), cv2.cvtColor(output_sr, cv2.COLOR_RGB2BGR))
+        cv2.imwrite(os.path.join(save_img_path, 'SRResCGAN_'+path_lr.split('/')[-1]), cv2.cvtColor(output_sr, cv2.COLOR_RGB2BGR))
         del img_LR, img_lr
         del output_SR, output_sr
 
