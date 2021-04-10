@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Super Resolution</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+</head>
+
+<body>
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   <ul class=flashes>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+   </ul>
+   {% endif %}
+   {% endwith %}
+   <nav class="navbar navbar-dark bg-dark ">
+      <a class="navbar-brand navbar-center" href="#">Super Resolution demo</a>
+   </nav>
+
+   <div class="container">
+      <div class="starter-template">
+         <h2>Super resolution</h2>
+         <p>Upload an image and see what the result</p>
+         <p> Max Image Size: 500 KB </p>
+      </div>
+   </div>
+   <div class="container">
+      <form method=post enctype=multipart/form-data>
+         <input type=file name=file onchange="loadFile(event)">
+         <input type=submit value=Upload class="btn btn-primary">
+         <select name="comp_select">
+            <option disabled="disabled" selected="selected">Choose model</option>
+            <option>SRFBN</option>
+<!--            <option>EDSR</option>-->
+            <option>SRResCGAN</option>
+<!--            <option>SRGAN</option>-->
+         </select>
+      </form>
+      <img id="output" alt=""/>
+      {% if data %}
+      <h3>Original</h3>
+      <br>
+      <img src="{{ data.uploaded_img }}" alt="">
+      <br>
+      <h3>x4 Resolution</h3>
+      <br>
+      <img src="{{ data.processed_img }}" alt="">
+      <br>
+      <br>
+   {% endif %}
+   </div>
+
+   <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+
+</html>
